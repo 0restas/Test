@@ -36,6 +36,8 @@ class QuestionController extends Controller
         foreach ($inputs as $i=>$input) 
         {
             if ($input == "on") {
+                if(is_int($i)) 
+                {
                     $answer_id = Answer::where('id', $i)->get();
                     foreach ($answer_id as $al) 
                     {
@@ -53,6 +55,7 @@ class QuestionController extends Controller
                                 $safe2 = Question::where('for', $test)->count();
                             }
                     }
+                }
                 $safe++;   
             }
         }
