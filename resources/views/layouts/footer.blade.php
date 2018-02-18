@@ -5,6 +5,7 @@
     var $len = $(".questions").length;
     $(".questions:eq('"+$i+"')").show();
     $(".Previous").hide();
+    $(".setName").hide();
     $(".Previous").click(function() {
         $i--;
         if ($i != -1) {
@@ -13,8 +14,11 @@
         } 
         if ($i == 0)
             $(".Previous").hide();
-        if ($i == $len-2)
+        if ($i == $len-2) 
+        {
             $(".Next").show();
+            $(".setName").hide();
+        }
         console.log($i);
     });
 
@@ -24,8 +28,11 @@
             $(".questions").hide();
             $(".questions:eq('"+$i+"')").show();
         } 
-        if ($i == $len-1)
+        if ($i == $len-1) 
+        {
             $(".Next").hide();
+            $(".setName").show();
+        }
         if ($i == 1)
             $(".Previous").show();
             console.log($i);

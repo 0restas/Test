@@ -12,12 +12,14 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        $tests = Test::latest()->get();
+        // get all test from "Test" table
+        $tests = Test::latest()->get(); 
         return view('welcome', compact('tests'));
     }
 
     public function show(Test $test)
     {
+        // display questions by random 
         $questions = Question::inRandomOrder()->get();
         return view('store', compact('test', 'questions', 'answers'));
     }
