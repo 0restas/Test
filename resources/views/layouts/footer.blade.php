@@ -46,4 +46,21 @@
         $(".Next").hide();
         $(".setName").hide();
     });
+
+// Radio button select just one, because i'm using inputs name for get data (can't make input groups by name tag)
+var j = 0;
+$('input[type=radio]').click(function(e){
+    var g = $(this);
+    $(".questions").each(function(index) {
+        for( i = 0 ; i < $(this).find('input').length; i++)
+            if($(this).find('input[type=radio]').eq(i).is(':checked')) {
+                j++;
+                if (j > 1)
+	                $(".questions").eq(index).find('input[type=radio]').prop('checked', false);
+            }
+        j = 0;
+        $(".questions").eq(index).find(g).prop('checked', true);
+    });
+});
+
 </script>

@@ -91,6 +91,6 @@ a {
     display:none;
 }
 
-label {
+label, input{
     cursor:pointer;
 }
